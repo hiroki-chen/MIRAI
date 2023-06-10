@@ -11,20 +11,20 @@ edition = "2021"
 build = "build.rs"
 
 [lib]
-test = false # we have no unit tests
+test = false    # we have no unit tests
 doctest = false # and no doc tests
 
 [[bin]]
 name = "cargo-mirai"
 path = "src/cargo_mirai.rs"
-test = false # we have no unit tests
-doctest = false # and no doc tests
+test = false                # we have no unit tests
+doctest = false             # and no doc tests
 
 [[bin]]
 name = "mirai"
 path = "src/main.rs"
-test = false # we have no unit tests
-doctest = false # and no doc tests
+test = false         # we have no unit tests
+doctest = false      # and no doc tests
 
 [dependencies]
 bincode = { version = "*", features = ["i128"] }
@@ -49,7 +49,9 @@ shellwords = "*"
 sled = "*"
 tar = "0.4.38"
 tempfile = "*"
-z3-sys = { version = "*", git="https://github.com/prove-rs/z3.rs.git", features = ["static-link-z3"], optional = true }
+z3-sys = { version = "*", git = "https://github.com/prove-rs/z3.rs.git", features = [
+  "static-link-z3",
+], optional = true, rev = "691ac97" }
 
 [dev-dependencies]
 walkdir = "*"
@@ -66,5 +68,3 @@ contracts = { version = "0.6.0", features = ["mirai_assertions"] }
 [features]
 default = ["z3"]
 z3 = ["dep:z3-sys"]
-
-
